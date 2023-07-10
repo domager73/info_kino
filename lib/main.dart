@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'feature/auth/ui/auth_screen.dart';
+import 'global/theme_bloc/theme_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +39,7 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp(
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
-              locale: Locale('en'),
+              locale: _locale,
               title: 'Flutter Demo',
               theme: state.themeData,
               home: MyHomePage());
