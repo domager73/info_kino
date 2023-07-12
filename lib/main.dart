@@ -8,12 +8,33 @@ import 'package:info_kino/global/theme_bloc/theme_cubit.dart';
 import 'package:info_kino/services/auth_service.dart';
 import 'package:info_kino/themes/themes.dart';
 
+import 'feature/auth/ui/auth_screen.dart';
+import 'global/theme_bloc/theme_cubit.dart';
+
 void main() {
   runApp(MyRepositoryProviders());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  static void setLocate(BuildContext context, Locale newLocale){
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state?.setLocale(newLocale);
+  }
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale? _locale;
+
+  setLocale(Locale locale){
+    setState(() {
+      _locale = locale;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +45,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
-              locale: Locale('en'),
+              locale: _locale,
               title: 'Flutter Demo',
               theme: state.themeData,
               home: MyHomePage());
@@ -42,88 +63,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        //backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(AppLocalizations.of(context)!.goobBye),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  BlocProvider.of<ThemeCubit>(context)
-                      .changeThem(AppThemesEnum.light);
-                },
-                child: const Icon(Icons.sunny)),
-            ElevatedButton(
-                onPressed: () {
-                  BlocProvider.of<ThemeCubit>(context)
-                      .changeThem(AppThemesEnum.dark);
-                },
-                child: const Icon(Icons.nights_stay)),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-}
-
-class MyRepositoryProviders extends StatelessWidget {
-  MyRepositoryProviders({super.key});
-
-  final AuthService authService = AuthService();
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiRepositoryProvider(providers: [
-      RepositoryProvider(
-        create: (_) => AuthRepository(authService: authService)..checkLogin(),
-        lazy: false,
-      )
-    ], child: const MyBlocProviders());
-  }
-}
-
-class MyBlocProviders extends StatelessWidget {
-  const MyBlocProviders({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(providers: [
-      BlocProvider(
-        create: (_) => AppCubit(
-            authRepository: RepositoryProvider.of<AuthRepository>(context)),
-        lazy: false,
-      ),
-      BlocProvider(
-        create: (_) => AuthCubit(
-            authRepository: RepositoryProvider.of<AuthRepository>(context)),
-        lazy: false,
-      ),
-    ], child: const MyApp());
+    return const AuthScreen();
   }
 }
