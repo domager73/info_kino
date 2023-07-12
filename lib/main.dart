@@ -4,21 +4,19 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:info_kino/global/app_cubit/app_cubit.dart';
 import 'package:info_kino/global/auth/auth_cubit.dart';
 import 'package:info_kino/global/data/auth_repository.dart';
-import 'package:info_kino/global/theme_bloc/theme_cubit.dart';
 import 'package:info_kino/services/auth_service.dart';
-import 'package:info_kino/themes/themes.dart';
 
 import 'feature/auth/ui/auth_screen.dart';
 import 'global/theme_bloc/theme_cubit.dart';
 
 void main() {
-  runApp(MyRepositoryProviders());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  static void setLocate(BuildContext context, Locale newLocale){
+  static void setLocate(BuildContext context, Locale newLocale) {
     _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
     state?.setLocale(newLocale);
   }
@@ -30,7 +28,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
 
-  setLocale(Locale locale){
+  setLocale(Locale locale) {
     setState(() {
       _locale = locale;
     });
@@ -68,3 +66,36 @@ class _MyHomePageState extends State<MyHomePage> {
     return const AuthScreen();
   }
 }
+
+class MyRepositoryProviders extends StatelessWidget {
+  MyRepositoryProviders({super.key});
+
+  final AuthService authService = AuthService();
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiRepositoryProvider(providers: [
+      RepositoryProvider(
+          create: (_) => AuthRepository(authService: authService),)
+    ], child: const MyBlocProviders());
+  }
+}
+
+class MyBlocProviders extends StatelessWidget {
+  const MyBlocProviders({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(providers: [
+      BlocProvider(create: (_) =>
+          AppCubit(
+              authRepository: RepositoryProvider.of<AuthRepository>(context)),
+        lazy: false,),
+      BlocProvider(create: (_) =>
+          AuthCubit(
+              authRepository: RepositoryProvider.of<AuthRepository>(context)),
+        lazy: false,),
+    ], child: const MyApp());
+  }
+}
+
