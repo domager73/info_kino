@@ -9,6 +9,7 @@ import 'package:info_kino/services/auth_service.dart';
 import 'package:info_kino/services/custom_bloc_observer.dart';
 
 import 'feature/auth/ui/auth_screen.dart';
+import 'feature/register/ui/register_screen.dart';
 import 'firebase_options.dart';
 import 'global/theme_bloc/theme_cubit.dart';
 
