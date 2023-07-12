@@ -5,8 +5,8 @@ import 'package:info_kino/themes/themes.dart';
 part 'theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
-  ThemeCubit() : super(ThemeState(themeData: appThemes[AppThemesEnum.light]!));
+  ThemeCubit() : super(ThemeState(themeData: AppTheme.darkTheme));
 
-  void changeThem(AppThemesEnum theme) =>
-      emit(ThemeState(themeData: appThemes[theme]!));
+  void changeThem(ThemeData data) =>
+      emit(ThemeState(themeData: data));
 }

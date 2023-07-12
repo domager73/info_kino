@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
               locale: _locale,
               title: 'Flutter Demo',
               theme: state.themeData,
-              home: MyHomePage());
+              home: const MyHomePage());
         },
       ),
     );
@@ -71,7 +71,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const AuthScreen();
+    return const RegisterScreen();
   }
 }
 

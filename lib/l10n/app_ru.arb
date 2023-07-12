@@ -1,4 +1,9 @@
 {
   "helloWorld": "Привет мир!",
-  "goobBye": "Пока!"
+  "goobBye": "Пока!",
+  "email": "Почта",
+  "password": "Пароль",
+  "registered": "Зарегистроваться",
+  "auth": "Вход",
+  "register": "Регестрация"
 }

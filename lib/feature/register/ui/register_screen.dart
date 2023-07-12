@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:info_kino/utils/fonts.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class AuthScreen extends StatefulWidget {
-  const AuthScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<AuthScreen> createState() => _AuthScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -17,7 +17,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.auth),
+        title: Text(AppLocalizations.of(context)!.register),
       ),
       body: Center(
         child: Padding(
@@ -50,12 +50,12 @@ class _AuthScreenState extends State<AuthScreen> {
                     width: double.infinity,
                     height: 60,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).cardColor,
-                      borderRadius: BorderRadius.circular(10)
+                        color: Theme.of(context).cardColor,
+                        borderRadius: BorderRadius.circular(10)
                     ),
                     child: ElevatedButton(
                       onPressed: () {},
-                      child: Text(AppLocalizations.of(context)!.auth, style: AppTypography.font16black,),
+                      child: Text(AppLocalizations.of(context)!.registered, style: AppTypography.font16black,),
                     ),
                   ),
                   const SizedBox(height: 50,)
@@ -68,16 +68,3 @@ class _AuthScreenState extends State<AuthScreen> {
     );
   }
 }
-
-//
-// Text(AppLocalizations.of(context)!.goobBye),
-// TextButton(
-// onPressed: () {
-// MyApp.setLocate(context, Locale('ru'));
-// },
-// child: Text('ru')),
-// TextButton(
-// onPressed: () {
-// MyApp.setLocate(context, Locale('en'));
-// },
-// child: Text('en'))
