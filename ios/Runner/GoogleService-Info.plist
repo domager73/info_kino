@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>392680060809-an9sdv8pi7go5uc45rh6vihe1p7l9brp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.392680060809-an9sdv8pi7go5uc45rh6vihe1p7l9brp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCYoQpgQsmgYMRSO4Duz47ZG1tiDVxjrDI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>392680060809</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.infoKino</string>
+	<key>PROJECT_ID</key>
+	<string>ri-and-go-1985b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ri-and-go-1985b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:392680060809:ios:74c103a1d4d5b59e999358</string>
+</dict>
+</plist>
