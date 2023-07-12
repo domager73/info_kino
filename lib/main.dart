@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:info_kino/feature/register/ui/register_screen.dart';
 
-import 'feature/auth/ui/auth_screen.dart';
 import 'global/theme_bloc/theme_cubit.dart';
 
 void main() {
@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
               locale: _locale,
               title: 'Flutter Demo',
               theme: state.themeData,
-              home: MyHomePage());
+              home: const MyHomePage());
         },
       ),
     );
@@ -59,6 +59,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const AuthScreen();
+    return const RegisterScreen();
   }
 }

@@ -1,4 +1,9 @@
 {
   "helloWorld": "Hello World!",
-  "goobBye": "Good Bye!"
+  "goobBye": "Good Bye!",
+  "email": "Email",
+  "password": "Password",
+  "registered": "Registered",
+  "auth": "Auth",
+  "register": "Register"
 }
