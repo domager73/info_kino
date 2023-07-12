@@ -27,7 +27,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
             children: [
               Column(
                 children: [
-                  const SizedBox(height: 50,),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   Text(AppLocalizations.of(context)!.email),
                   TextFormField(
                     controller: nameController,
@@ -51,14 +53,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 60,
                     decoration: BoxDecoration(
                         color: Theme.of(context).cardColor,
-                        borderRadius: BorderRadius.circular(10)
-                    ),
+                        borderRadius: BorderRadius.circular(10)),
                     child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(AppLocalizations.of(context)!.registered, style: AppTypography.font16black,),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/home_screen');
+                      },
+                      child: Text(
+                        AppLocalizations.of(context)!.registered,
+                        style: AppTypography.font16black,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 50,)
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  InkWell(
+                    child: Text(AppLocalizations.of(context)!.auth),
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/login_screen');
+                    },
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  )
                 ],
               )
             ],

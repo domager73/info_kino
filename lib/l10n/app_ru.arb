@@ -5,5 +5,7 @@
   "password": "Пароль",
   "registered": "Зарегистроваться",
   "auth": "Вход",
-  "register": "Регестрация"
+  "register": "Регестрация",
+  "search": "Поиск",
+  "profile": "Профиль"
 }

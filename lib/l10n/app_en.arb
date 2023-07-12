@@ -5,5 +5,7 @@
   "password": "Password",
   "registered": "Registered",
   "auth": "Auth",
-  "register": "Register"
+  "register": "Register",
+  "search": "Search",
+  "profile": "Profile"
 }

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:info_kino/utils/fonts.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class AuthScreen extends StatefulWidget {
-  const AuthScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<AuthScreen> createState() => _AuthScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -54,9 +54,18 @@ class _AuthScreenState extends State<AuthScreen> {
                       borderRadius: BorderRadius.circular(10)
                     ),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/home_screen');
+                      },
                       child: Text(AppLocalizations.of(context)!.auth, style: AppTypography.font16black,),
                     ),
+                  ),
+                  const SizedBox(height: 30,),
+                  InkWell(
+                    child: Text(AppLocalizations.of(context)!.register),
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/register_screen');
+                    },
                   ),
                   const SizedBox(height: 50,)
                 ],
