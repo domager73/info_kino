@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:info_kino/services/auth_service.dart';
 
-import 'feature/auth/ui/auth_screen.dart';
+import 'feature/register/ui/register_screen.dart';
+import 'global/app_cubit/app_cubit.dart';
+import 'global/auth/auth_cubit.dart';
+import 'global/data/auth_repository.dart';
 import 'global/theme_bloc/theme_cubit.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyRepositoryProviders());
 }
 
 class MyApp extends StatefulWidget {
