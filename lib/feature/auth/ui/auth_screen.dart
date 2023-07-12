@@ -77,16 +77,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-//
-// Text(AppLocalizations.of(context)!.goobBye),
-// TextButton(
-// onPressed: () {
-// MyApp.setLocate(context, Locale('ru'));
-// },
-// child: Text('ru')),
-// TextButton(
-// onPressed: () {
-// MyApp.setLocate(context, Locale('en'));
-// },
-// child: Text('en'))
