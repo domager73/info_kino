@@ -11,6 +11,9 @@ class ApiService {
     ),
   );
 
+  static const String _films = 'films?order';
+  static const String _premieres = 'films/premieres';
+  static const String _film = 'films/';
 
 
 }

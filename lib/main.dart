@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -5,12 +6,19 @@ import 'package:info_kino/global/app_cubit/app_cubit.dart';
 import 'package:info_kino/global/auth/auth_cubit.dart';
 import 'package:info_kino/global/data/auth_repository.dart';
 import 'package:info_kino/services/auth_service.dart';
+import 'package:info_kino/services/custom_bloc_observer.dart';
 
 import 'feature/auth/ui/auth_screen.dart';
+import 'firebase_options.dart';
 import 'global/theme_bloc/theme_cubit.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = CustomBlocObserver();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyRepositoryProviders());
 }
 
 class MyApp extends StatefulWidget {
